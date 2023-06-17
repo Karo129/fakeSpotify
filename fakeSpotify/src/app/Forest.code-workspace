@@ -1,0 +1,67 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../HTML_CSS_JS/Forest"
+		},
+		{
+			"path": "../../../../../HTML_CSS_JS/positive"
+		},
+		{
+			"path": "../../../../../../toDoListJS"
+		},
+		{
+			"path": "../../../../../../todoListAngular"
+		},
+		{
+			"path": "../../../../../../concreteApp"
+		},
+		{
+			"path": "../../../../../../ABMEmpleado-master"
+		},
+		{
+			"path": "../../../../../../orderConcrete"
+		},
+		{
+			"path": "../../../../../../Info"
+		},
+		{
+			"path": "../../../../todoLIST 2.0"
+		},
+		{
+			"path": "../../../../todoLIST 2.0 ANGULAR"
+		},
+		{
+			"path": "../../../../kursAngularNode.js/angular-03-finished"
+		},
+		{
+			"path": "../../../../node.js"
+		},
+		{
+			"path": "../../../../../../QAFULLSTACK"
+		},
+		{
+			"path": "../../../../todoLIST Angular"
+		},
+		{
+			"path": "../../../../todoLIST AMaterial"
+		},
+		{
+			"path": "../../../../access"
+		},
+		{
+			"path": "../../../../eshop"
+		},
+		{
+			"path": "../../../../../../testANGULAR"
+		},
+		{
+			"path": "../../../../../../tarjetaC"
+		},
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Forest"
+	}
+}

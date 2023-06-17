@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,26 @@ import { environment } from 'src/environments/environment';
 export class TracksService {
   private readonly URL = environment.api;
 
-  constructor(private httpClient: HttpClient){
+  constructor(private http: HttpClient){
     
   }
 
   getAllTracks$(): Observable<any> {
-    return this.httpClient.get(`${this.URL}/tracks`)
+    return this.http.get(`${this.URL}/tracks`)
+    .pipe(
+      map(({data}: any) => {
+        return data
+      })
+    )
   }
+
+  getAllRandom$(): Observable<any> {
+    return this.http.get(`${this.URL}/tracks`)
+    .pipe(
+      map(({data}: any) =>{
+        return data.reverse()
+      })
+    )
+  }
+
 }
