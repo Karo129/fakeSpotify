@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
-import { Observable } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 
@@ -38,10 +38,13 @@ export class TracksService {
       mergeMap(({data}: any) =>
         this.skipById(data, 1)
       ),
-      map((dataRevertida ) =>{
-        return dataRevertida.filter(track => track._id !== 1)
-      }),
-      
+      // map((dataRevertida ) =>{
+      //   return dataRevertida.filter(track => track._id !== 1)
+      // }),
+      // tap(data => console.log('ok', data)),
+      // catchError((err) => {
+      //   return of([])
+      // })
 
     )
   }

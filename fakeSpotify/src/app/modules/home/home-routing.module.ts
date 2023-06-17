@@ -11,6 +11,10 @@ loadChildren: () => import('@modules/favorites/favorites.module').then(m => m.Fa
 },
 { path: 'history', 
 loadChildren: () => import('@modules/history/history.module').then(m => m.HistoryModule)
+},
+{
+  path: '**', 
+  redirectTo: '/tracks'
 }
 ];
 
