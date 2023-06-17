@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TrackModel } from '@core/models/tracks.model';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 
@@ -13,6 +14,13 @@ export class TracksService {
 
   constructor(private http: HttpClient){
     
+  }
+
+  private skipById(listTracks: TrackModel[], id: number): Promise<TrackModel[]> {
+    return new Promise((resolve, reject) => {
+      const listTmp = listTracks.filter(a => a._id !== id)
+      resolve(listTmp);
+    })
   }
 
   getAllTracks$(): Observable<any> {
@@ -27,9 +35,14 @@ export class TracksService {
   getAllRandom$(): Observable<any> {
     return this.http.get(`${this.URL}/tracks`)
     .pipe(
-      map(({data}: any) =>{
-        return data.reverse()
-      })
+      mergeMap(({data}: any) =>
+        this.skipById(data, 1)
+      ),
+      map((dataRevertida ) =>{
+        return dataRevertida.filter(track => track._id !== 1)
+      }),
+      
+
     )
   }
 
