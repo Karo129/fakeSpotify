@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { HistoryRoutingModule } from './history-routing.module';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { SearchComponent } from './components/search/search.component';
+import { SharedModule } from 'src/app/data/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    HistoryPageComponent
+    HistoryPageComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
-    HistoryRoutingModule
+    HistoryRoutingModule,
+    SharedModule
   ]
 })
 export class HistoryModule { }
