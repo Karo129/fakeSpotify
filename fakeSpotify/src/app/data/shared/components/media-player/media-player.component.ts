@@ -9,25 +9,16 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./media-player.component.css']
 })
 export class MediaPlayerComponent implements OnInit, OnDestroy {
-  mockCover: TrackModel = {
-    cover: '',
-    name: 'BEBE (Oficial)',
-    album: 'Gioli & Assia',
-    url: '',
-    _id: 1
-  }
 
   listObservers$: Array<Subscription> = [];
 
-  constructor(private multimediaService: MultimediaService) { }
+  constructor(public multimediaService: MultimediaService) {
+  
+    }
+   
 
   ngOnInit(): void {
-    const observer1$: Subscription = this.multimediaService.callback.subscribe(
-      (response: TrackModel) => {
-        console.log('Recibiendo cancion...', response);
-      }
-    )
-    this.listObservers$ = [observer1$];
+    this.multimediaService.trackInfo$;
   }
 
   ngOnDestroy(): void {
